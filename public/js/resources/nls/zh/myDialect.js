@@ -1,0 +1,70 @@
+define({
+    "msg1": "欢迎进入Oracle Cloud合作伙伴认证系统",
+    "msg2": "您的证书",
+    "msg3": "提示",
+    "msg4": "警告",
+    "msg5": "登录失败!",
+    "msg6": "查询证书失败!",
+    "msg7": "请输入查询条件!",
+    "msg8": "无相关记录!",
+    "msg9": "Apex中UID有错!",
+    "msg10": "Apex中没有UID返回",
+    "msg11": "更新历史记录",
+    "msg12": "无数据",
+    "msg13": "更新用户 : ",
+    "msg14": "更新时间 : ",
+    "msg15": "详情",
+    "top": {
+        "nav1": "管理",
+        "nav2": "个人信息",
+        "nav3": "退出"
+    },
+    "menu": {
+        "nav0": "登录",
+        "nav1": "首页",
+        "nav2": "查询证书",
+        "nav3": "注册证书",
+        "nav4": "个人信息",
+        "nav5": "设置"
+    },
+    "title": {
+        "t1": "甲骨文合作伙伴认证",
+        "t2": "认证证书查询",
+        "t3": "合作伙伴查询",
+        "t4": "编辑证书"
+    },
+    "label": {
+        "username": "用户名",
+        "fullname": "用户全称",
+        "password": "密码",
+        "key": "证书Key",
+        "hKey": "验证证书Key",
+        "certName": "证书名称",
+        "partnerName": "合作伙伴名称",
+        "participant": "参与者",
+        "contacts": "联系人",
+        "mobile": "手机号码",
+        "passingdate": "颁发日期",
+        "expirydate": "失效日期",
+        "email": "邮件",
+        "certType": "证书类型",
+        "certStatus": "证书状态",
+        "score": "得分",
+        "info": "简介",
+        "lastUpdatedate": "最后更新时间",
+        "changePwd": "修改密码",
+        "oldpwd": "旧密码",
+        "newpwd": "新密码",
+        "newpwdConfirm": "密码确认",
+        "selectDefault": "请选择 ..."
+    },
+    "button": {
+        "login": "登录",
+        "cancel": "取消",
+        "submit": "提交",
+        "delete": "删除",
+        "save": "保存",
+        "showAll": "获取全部",
+        "search": "搜索"
+    }
+});

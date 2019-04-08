@@ -1,0 +1,28 @@
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-padding">
+  <h1 data-bind="text: msg1"></h1>
+  <div id="certRegion">
+    <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
+      <h3>
+      <span data-bind="text: msg2"></span>
+      <oj-button chroming='half' style="margin-left:30px;" on-oj-action='[[onGetYourCerts]]'>
+        <span slot="startIcon" class="oj-fwk-icon">
+          <i class="fas fa-sync-alt"></i>
+        </span>
+        <span></span>
+      </oj-button></h3>
+    </div>
+    <div class="cert-home">
+      <div id="composite-container" class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
+        <!-- ko foreach: yourCerts -->
+        <demo-card class="oj-flex-item" certificate-name="[[CertificateName]]" certificate-hash="[[CertificateHash]]" expiry-date="[[ExpiryDate]]"
+          certificate-status-name="[[CertificateStatusName]]" certificate-type-name="[[CertificateTypeName]]" partner-name="[[PartnerName]]">
+        </demo-card>
+        <!-- /ko -->
+      </div>
+    </div>
+  </div>
+</div>

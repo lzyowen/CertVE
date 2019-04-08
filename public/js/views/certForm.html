@@ -1,0 +1,92 @@
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+ <div class="oj-hybrid-padding">
+    <h2 data-bind="text: topTitle"></h2>
+    <div id="form-container" class="cert-form">
+        <!-- <div class="oj-flex">
+            <div class="oj-flex-item oj-md-2"><oj-label for='Key' show-required="true">Key</oj-label></div>
+            <div class="oj-flex-item oj-sm-12 oj-md-4">
+                <oj-input-text id="Key" required value="{{key}}" label-hint="Key" readonly></oj-input-text>
+            </div>
+            <div class="oj-flex-item oj-md-2"><oj-label for='CertificateName' show-required="true">Certificate Name</oj-label></div>
+            <div class="oj-flex-item oj-sm-12 oj-md-4">
+                <oj-input-text id="CertificateName" required value="{{certName}}" disabled></oj-input-text>
+            </div>
+        </div> -->
+        <oj-form-layout id="ofl1" label-edge="{{labelEdge}}" max-columns="{{columns}}" direction="column">
+            <oj-input-text id="Key" value="{{key}}" label-hint="{{lblKey}}" readonly ></oj-input-text>
+            <oj-select-one id="CertificateName" required value="{{certName}}" placeholder="{{lblSelectDefault}}" label-hint="{{lblCertName}}" style="max-width:430px;">
+                <!-- ko foreach: certNameLOV -->
+                <oj-option value="[[value]]">
+                    <span data-bind="text: ' ' + label"></span>
+                </oj-option>
+                <!-- /ko -->
+            </oj-select-one>
+        </oj-form-layout>
+        <oj-form-layout id="ofl2" label-edge="{{labelEdge}}" max-columns="1" direction="row" label-width="16.6%">
+            <oj-text-area id="PartnerName" required autofocus value="{{partnerName}}" label-hint="{{lblPartnerName}}" style="max-width:100%;"></oj-text-area>
+            <oj-text-area id="Participant" value="{{participant}}" label-hint="{{lblParticipant}}" style="max-width:100%;"></oj-text-area>
+        </oj-form-layout>
+
+        <oj-form-layout id="ofl2" label-edge="{{labelEdge}}" max-columns="{{columns}}" direction="column" >
+            <oj-input-text id="Contacts" value="{{contacts}}" label-hint="{{lblContacts}}" clear-icon="always"></oj-input-text>
+            <oj-input-text id="Mobile" value="{{mobile}}" validators="[[mobilePatternValidator]]" label-hint="{{lblMobile}}" virtual-keyboard="tel"
+                placeholder="+86" clear-icon="always"></oj-input-text>
+            <oj-input-text id="Email" value="{{email}}" validators="[[emailPatternValidator]]" label-hint="{{lblEmail}}" virtual-keyboard="email"
+                placeholder="email@example.com" clear-icon="always"></oj-input-text>
+            <oj-select-one id="CertificateType" required value="{{certType}}" placeholder="{{lblSelectDefault}}" label-hint="{{lblCertType}}">
+                <!-- ko foreach: certTypeLOV -->
+                <oj-option value="[[value]]">
+                    <i class="fas fa-certificate" data-bind="css: 'cert-'+ value"></i>
+                    <span data-bind="text: ' '+ label"></span>
+                </oj-option>
+                <!-- /ko -->
+            </oj-select-one>
+        </oj-form-layout>
+
+        <oj-form-layout id="ofl3" label-edge="{{labelEdge}}" max-columns="{{columns}}" direction="column" >
+            <oj-input-date id="PassingDate" required value="{{passingDate}}" label-hint="{{lblPassingdate}}" converter=[[dateConverter]]></oj-input-date>
+            <oj-input-date id="ExpiryDate" required value="{{expiryDate}}" label-hint="{{lblExpirydate}}" min="{{passingDate}}" converter=[[dateConverter]]></oj-input-date>
+            <oj-select-one id="CertificateStatus" required value="{{certStatus}}" placeholder="{{lblSelectDefault}}" label-hint="{{lblCertStatus}}">
+                <!-- ko foreach: certStatusLOV -->
+                <oj-option value="[[value]]">
+                    <span data-bind="text: label"></span>
+                </oj-option>
+                <!-- /ko -->
+            </oj-select-one>
+            <oj-input-number id="Score" required max="150" min="0" step="10" value="{{score}}" label-hint="{{lblScore}}"></oj-input-number>
+        </oj-form-layout>
+
+        <br/>
+        <hr>
+        <br/>
+        <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-between">
+            <div class="oj-flex-item"></div>
+            <div class="oj-flex-item">
+                <oj-button chroming='full' style="margin-right:25px;" on-oj-action='[[onCancel]]'>
+                    <span slot="startIcon" class="oj-fwk-icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span data-bind='text: btnCancel'></span>
+                </oj-button>
+                <oj-button class='oj-button-primary cert-trash-button' style="margin-right:25px;" 
+                    data-bind="visible: key" chroming='full' disabled='{{disableDel}}' on-oj-action='[[onDelete]]'>
+                    <span slot="startIcon" class="oj-fwk-icon">
+                        <i class="fas  fa-trash-alt"></i>
+                    </span>
+                    <span data-bind='text: btnDelete'></span>
+                </oj-button>
+                <oj-button class='oj-button-primary cert-button' disabled='{{disableSubmit}}' chroming='full' on-oj-action='[[onSubmit]]'>
+                    <span slot="startIcon" class="oj-fwk-icon">
+                        <i class="fas fa-address-card"></i>
+                    </span>
+                    <span data-bind='text: btnSubmit'></span>
+                </oj-button>
+            </div>
+            <div class="oj-flex-item"></div>
+        </div>
+    </div>
+
+</div>

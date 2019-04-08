@@ -1,0 +1,25 @@
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+-->
+<div>
+    <h2><span data-bind="text: t1"></span></h2>
+
+    <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+        
+        <div id="moduleDemo">
+            <div style="width: 100%;text-align: center;border-top: 15px solid grey;background-color: white;padding-top: 20px;">
+          <oj-buttonset-one class="oj-buttonset-width-auto" value="{{currentModule}}" data-bind="visible: isAuthBool()">
+            <oj-option id="sv1" value="certList" data-bind="visible: isOracle()"><span data-bind="text: t2"></span></oj-option>
+            <oj-option id="sv2" value="certPartnerList"><span data-bind="text: t3"></span></oj-option>
+          </oj-buttonset-one>
+          </div>
+          <div data-bind="ojModule: modulePath" style="background-color: white">
+          </div>
+        
+          
+        </div>
+
+        
+      </div>
+</div>

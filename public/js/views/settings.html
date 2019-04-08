@@ -1,0 +1,15 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<h2>设置</h2>
+
+<div style="background-color: white;min-height: 60vh;max-height: 100vh;padding: 20px;border-radius: 5px;">
+    <div data-bind="text: hostURLtitle"></div>
+    <input style="max-width: 100%;width: 100%;" data-bind="value: hostURL" />
+    <div style="font-size: 9px;float: right;">默认地址：http://www.certve.com</div>
+    <div style="width: 100%;float: right;"><oj-button class="cert-button" style="width: 90px;height: 2rem;margin-top: 30px;float: right;" on-click='[[onConfirm]]'>确定</oj-button></div>
+</div>
+

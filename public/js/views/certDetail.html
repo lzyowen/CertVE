@@ -1,0 +1,261 @@
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+-->
+<div class="" style="    position: relative;">
+    <div id="listViewContainer" class="cert-form cert-form-dt">
+        <div>
+            <div class="oj-flex" style="position: relative;">
+                <div class="oj-flex-item oj-md-2 oj-sm-6">
+                    <oj-button on-click="[[handleBack]]">
+                        <span slot="startIcon" class="oj-fwk-icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        Back
+                    </oj-button>
+                </div>
+
+                <div class="oj-flex-item oj-md-8 oj-sm-12">
+
+                    <div  style="padding: 10px;position: absolute;right: 0px;top: 0px;">
+                        <div class="oj-flex-item" data-bind="click: onShare" style="margin-right: 10px;">
+                            <i class="fas fa-share-alt cert-btn-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="oj-flex-item" data-bind="click: onDownload" style="position: absolute;right: 60px;top: 0px;padding: 10px;">
+                        <i class="fas fa-download cert-btn-icon"></i>
+                    </div>
+
+
+                    <div class="oj-flex-item cert-edit-btn-dt"
+                         data-bind="click: onEdit,visible: ifOracleRole">
+                        <i class="fas fa-edit fa-2x cert-edit-icon-dt"></i>
+                    </div>
+                    <!-- Cert Detail Information -->
+                    <oj-collapsible>
+                        <h3 slot="header" style='margin-left: 10px;'>Certificate Details</h3>
+                        <div id="detail-container" data-bind="with: detail" class="oj-flex oj-panel" style="line-height: 1.5em;padding: 0px 15px;font-size: 16px;">
+                            <div class="oj-flex-item oj-md-1"></div>
+                            <div class="oj-flex-item oj-sm-12 oj-md-10">
+                                <div class="oj-flex row">
+                                    <div class="oj-sm-12 oj-md-6 ">
+                                        <strong>CertificateHash: </strong>
+                                        <span data-bind="text: CertificateHash"></span>
+                                    </div>
+                                    <div class="oj-sm-12 oj-md-6">
+                                        <strong>PartnerName: </strong>
+                                        <span data-bind="text: PartnerName"></span>
+                                    </div>
+                                </div>
+                                <div class="oj-flex row">
+                                    <div class="oj-sm-12 oj-md-6">
+                                        <strong>Contacts: </strong>
+                                        <span data-bind="text: Contacts"></span>
+                                    </div>
+                                    <div class="oj-sm-12 oj-md-6">
+                                        <strong>Mobile: </strong>
+                                        <span data-bind="text: Mobile"></span>
+                                    </div>
+                                </div>
+                                <div class="oj-flex row">
+                                    <div class="oj-sm-12 oj-md-6">
+                                        <strong>Email: </strong>
+                                        <span data-bind="text: Email"></span>
+                                    </div>
+                                    <div class="oj-sm-12 oj-md-6">
+                                        <strong>CertificateStatus: </strong>
+                                        <span data-bind="text: certStatusName"></span>
+                                    </div>
+                                </div>
+                                <div class="oj-flex row">
+                                    <div class="oj-sm-12 oj-md-6">
+                                        <strong>CertificateName: </strong>
+                                        <span data-bind="text: CertificateName"></span>
+                                    </div>
+                                    <div class="oj-sm-12 oj-md-6">
+                                        <strong>CertificateType: </strong>
+                                        <i class="fas fa-certificate" data-bind="css: 'cert-'+CertificateType"></i>
+                                        <span data-bind="text: certTypeName"></span>
+                                    </div>
+                                </div>
+                                <div class="oj-flex row">
+                                    <div class="oj-sm-12 oj-md-6">
+                                        <strong>PassingDate: </strong>
+                                        <span data-bind="text: PassingDate"></span>
+                                    </div>
+                                    <div class="oj-sm-12 oj-md-6">
+                                        <strong>ExpiryDate: </strong>
+                                        <span data-bind="text: ExpiryDate"></span>
+                                    </div>
+                                </div>
+                                <div class="oj-flex row">
+                                    <div class="oj-sm-12 oj-md-6">
+                                        <strong>Participant: </strong>
+                                        <span data-bind="text: Participant"></span>
+                                    </div>
+                                    <div class="oj-sm-12 oj-md-6">
+                                        <strong>Score: </strong>
+                                        <span data-bind="text: Score"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="oj-flex-item oj-md-1"></div>
+                        </div>
+                    </oj-collapsible>
+                </div>
+            </div>
+
+
+
+
+            <!-- Cert Template -->
+            <div class="oj-flex" data-bind="with: detail;">
+                <div id="certTplContent" class="oj-flex-item oj-md-11 oj-sm-11 certTpl oj-hybrid-padding">
+
+                    <img src="css/images/tpl_logo2.png" class="certTpl-rightLogo" />
+
+                    <div>
+                        <img src="css/images/tpl_logo1.gif" width="25%" style="max-width: 200px;" />
+                    </div>
+                    <div class="certTpl-main-content">
+                        <div class="oj-flex" style="padding-top: 1.3vw;">
+                            <div class="oj-flex-item oj-sm-12">
+                                <span class="certTpl-header">This recognizes</span>
+                            </div>
+
+
+
+                        </div>
+                        <br/>
+                        <div>
+                            <div data-bind="text: PartnerName" class="certTpl-content-m certTpl-content"></div>
+                            <hr/>
+                            <div class="certTpl-header">as </div>
+                        </div>
+                        <div class="certTpl-content-2">
+                            <p class="certTpl-content-m" data-bind="text: CertificateName"></p>
+                        </div>
+                        <div class="certTpl-content-3 oj-flex">
+                            <div class="oj-flex-item oj-sm-3 certTpl-date">
+                                <span data-bind="text: ExpiryDate"></span>
+                                <hr>
+                                <span>EXPIRY DATE</span>
+                            </div>
+                            <div class="oj-flex-item oj-sm-1"></div>
+                            <div class="oj-flex-item oj-sm-8 certTpl-sign">
+                                <span>&nbsp;</span>
+                                <hr>
+                                <span>KENNETH CHU</span>
+                                <p>GENERAL MANAGER, ALLIANCES AND CHANNELS, CHINA</p>
+<!--                                <p>GENERAL MANAGER, CLOUD PLATFORM CHANNEL, CHINA</p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certTpl-qr-footer">
+                        <div id="certQR" class="certTpl-QR"></div>
+                    </div>
+
+                    <div class="certTpl-left-footer det_footer_color">Powered by OABCS</div>
+                    <div class="certTpl-footer det_footer_color" data-bind="text: CertificateHash"></div>
+                    <div class="certTpl-footer-upper det_footer_color">CertVE_grp@oracle.com</div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="hdp_dialog0" class="hdp_poperCompareWindow">
+            <div class="title"> <span>Before   </span><span data-bind="text: oD0">XXX</span> </div>
+            <div class="uperPop">
+                <ul>
+                    <li><span>ID: </span><span data-bind="text: oD1,css: { hightlightMe : dD1() < 0 }">cb227ecc664f3372565cc35d792021222</span></li>
+                    <li><span>Name: </span><span data-bind="text: oD2,css: { hightlightMe : dD2() < 0 }">甲骨文区块链ICS认证</span></li>
+                    <li><span>Contacts: </span><span data-bind="text: oD3,css: { hightlightMe : dD3() < 0 }">Liu Owen</span></li>
+                    <li><span>Pass date: </span><span data-bind="text: oD4,css: { hightlightMe : dD4() < 0 }">2019-05-01</span></li>
+                    <li><span>Expiry date: </span><span data-bind="text: oD5,css: { hightlightMe : dD5() < 0 }">2019-05-01</span></li>
+                    <li><span>Mobile: </span><span data-bind="text: oD6,css: { hightlightMe : dD6() < 0 }">041184655158</span></li>
+                    <li><span>Email: </span><span data-bind="text: oD7,css: { hightlightMe : dD7() < 0 }">@email.com</span></li>
+                    <li><span>Participant: </span><span data-bind="text: oD8,css: { hightlightMe : dD8() < 0 }">Liu Zhiyu,Zhu Dongspan></li>
+                    <li><span>Partner Name : </span><span data-bind="text: oD9,css: { hightlightMe : dD9() < 0 }">Liu Zhiyu,Zhu Dongspan></li>
+                </ul>
+            </div>
+            <div style="height: 1px;"></div>
+            <div class="title2 "> <span>After   </span><span data-bind="text: nD0">XXX</span></div>
+            <div class="lowerPop">
+                <ul>
+                    <li><span>ID: </span><span data-bind="text: nD1,css: { hightlightMe : dD1() < 0 }">cb227ecc664f3372565cc35d792021222</span></li>
+                    <li><span>Name: </span><span data-bind="text: nD2,css: { hightlightMe : dD2() < 0 }">甲骨文区块链ICS认证</span></li>
+                    <li><span>Contacts: </span><span data-bind="text: nD3,css: { hightlightMe : dD3() < 0 }">Liu Owen</span></li>
+                    <li><span>Pass date: </span><span data-bind="text: nD4,css: { hightlightMe : dD4() < 0 }">2019-05-01</span></li>
+                    <li><span>Expiry date: </span><span data-bind="text: nD5,css: { hightlightMe : dD5() < 0 }">2019-05-01</span></li>
+                    <li><span>Mobile: </span><span data-bind="text: nD6,css: { hightlightMe : dD6() < 0 }">041184655158</span></li>
+                    <li><span>Email: </span><span data-bind="text: nD7,css: { hightlightMe : dD7() < 0 }">@email.com</span></li>
+                    <li><span>Participant: </span><span data-bind="text: nD8,css: { hightlightMe : dD8() < 0 }">Liu Zhiyu,Zhu Dongspan></li>
+                    <li><span>Partner Name : </span><span data-bind="text: nD9,css: { hightlightMe : dD9() < 0 }">Liu Zhiyu,Zhu Dongspan></li>
+                </ul>
+            </div>
+            <oj-button class="hdp_closeBtn" data-bind="click: function() {
+                  $('#hdp_dialog0').hide();
+                }">X
+            </oj-button>
+        </div>
+
+        <div style="margin-top: 30px;padding:10px;">
+            <!--            <oj-timeline id='tline' data-bind='attr: {"aria-label": "history of key record"}'
+                                     minor-axis='{
+                                     "scale": "weeks",
+                                     "zoomOrder": ["quarters", "months", "weeks", "days"]
+                                     }'
+                                     major-axis.scale='quarters'
+                                     start='[[new Date("Jun 1, 2018").toISOString()]]'
+                                     end='[[nowDate]]'
+                                     selection-mode='single'
+                                     reference-objects='[[referenceObjects]]'
+                                     selection='["e4"]'
+                                     series='[[timelineSeries]]'
+                                     style='width:100%;height:350px'>
+                        </oj-timeline>-->
+
+
+
+            <ul class="cbp_tmtimeline" id="hisListForm">
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<oj-dialog style="display:none" id="modalDialog1" title="证书分享" style="display:none; height: 50vh;">
+    <div slot="body" class="popCertDtBody">
+        <div class="b1">
+            <div id="certQR_share" class="shareCertQR">
+            </div>
+        </div>
+        <div class="b1 b2">
+            <div>
+                <span>证书Key：</span>
+                <a id="certQRpop0"  class="btn" >  点击复制  </a>
+            </div>
+            </br>
+            <div>
+                <span>证书链接：</span>
+                <a id="certQRpop1"  class="btn" >  点击复制  </a>
+            </div>
+            </br>
+            <div>
+                <span>证书搜索：</span>
+                <a id="certQRpop2">  点击复制  </a>
+            </div>
+            <div style="text-align: center;margin-top: 20px;">
+                <span id="certQRpopSuccess">复制成功</span>
+            </div>
+        </div>
+    </div>
+    <div slot="footer">
+        <oj-button id="okButton" data-bind="click: function() {
+                  document.querySelector('#modalDialog1').close();
+                }">  OK
+        </oj-button>
+    </div>
+</oj-dialog>

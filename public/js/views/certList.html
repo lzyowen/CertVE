@@ -1,0 +1,85 @@
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+-->
+<div>
+
+        <div id="listViewContainer" class="cert-form">
+<!--            <oj-form-layout id="ofl1" label-edge="{{labelEdge}}" label-edge="{{labelEdge}}" label-width="20%" max-columns="1" direction="row">
+                <oj-input-text id="search" value="{{searchKey}}" label-hint="Certificate Hash Key" autofocus clear-icon='conditional' style='max-width:90%'></oj-input-text>
+                <oj-input-text id="fPartnerName" value="{{fPartnerName}}" label-hint="Partner Name" autofocus clear-icon='conditional' style='max-width:90%'></oj-input-text>
+                <oj-input-text id="fCertificateName" value="{{fCertificateName}}" label-hint="Certificate Name" autofocus clear-icon='conditional' style='max-width:90%'></oj-input-text>
+            </oj-form-layout>-->
+
+            <div class="cert-colume cert-topSearch">
+                <div class="oj-flex oj-flex-items-pad" style="margin: 0 10px;">
+                    <div class="oj-sm-12 oj-md-4 oj-lg-4 oj-xl-4 oj-flex-item">
+                        <oj-select-one id="select" options="[[filterItems]]" 
+                                       value="{{selecFilterName}}" style="">
+                        </oj-select-one>
+                    </div>
+                    <div class="oj-sm-12 oj-md-8 oj-lg-8 oj-xl-8 oj-flex-item">
+                        <oj-input-text id="search" value="{{searchWords}}" label-hint="Certificate Hash Key" autofocus clear-icon='conditional' style='max-width:100%' on-raw-value-changed="[[handleRawValueChanged]]"></oj-input-text>
+                    </div>
+                </div>
+                <br/>
+                <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-between" style="text-align: right;margin-right: 20px;">
+                    <div class='oj-flex-item' style="width: 100%">
+                        <oj-button id="searchBTN" on-oj-action="[[onSearch]]" style="margin-right:25px;" data-bind="visible: isAuthed()">
+                            <span><oj-bind-text value="[[btnShowAll]]"></oj-bind-text></span>
+                        </oj-button>
+                        <oj-button id="filterBTN" on-oj-action="[[onFilter]]">
+                            <span><oj-bind-text value="[[btnSearch]]"></oj-bind-text></span>
+                        </oj-button>
+                    </div>
+                </div>
+                <br/>
+            </div>
+            <oj-list-view id="norlistview" class="cert-list cert-colume" data="[[dataSource]]" selection-mode="single" selection="{{selectedItems}}"
+                          scroll-policy="auto" item.renderer="[[oj.KnockoutTemplateUtils.getRenderer('lsTemplate', true)]]">
+                <!-- on-current-item-changed="[[gotoDetail]]"> -->
+            </oj-list-view>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/html" id="lsTemplate">
+    <li data-bind="attr: {id: 'cert' + $context.index}">
+        <div class="oj-flex">
+            <div class="oj-flex-item oj-sm-12 oj-md-1 cert-vertical-middle cert-detail-icon" data-bind="click: $parent.gotoDetail">
+                <i class="fas fa-certificate fa-3x lstempiconBg" data-bind="css: 'cert-'+$data.Record.CertificateType">
+                    <i class="fas fa-address-card fa-2x cert-detail-icon-inner" data-bind="css: {'cert-detail-icon-inner-small': $parent.smScreen}"></i>
+                </i>
+            </div>
+
+            <div class="oj-flex-item oj-sm-12 oj-md-10">
+                <div class="oj-flex cert-list-row ">
+                    <div class="oj-flex-item oj-sm-12 oj-md-3 cert-list-title"><span data-bind="text: $data.Record.PartnerName"></span></div>
+                    <div class="oj-flex-item oj-md-6 oj-lg-5" style="max-width: 100%;">
+                        <div class="cert-key"  data-bind="text: 'Key:' + $data.Record.CertificateHash"></div>
+                    </div>
+                    <div class="oj-flex-item oj-sm-12 oj-md-3 oj-lg-4" style="max-width: 100%;">
+                        <!-- <strong>Type: </strong>
+                        <oj-input-text value="{{$data.Record.certTypeName}}" readonly></oj-input-text> -->
+                        <p  class="cert-key" data-bind="text: $data.Record.CertificateName"></p>
+                    </div>
+                </div>
+                <div class="oj-flex cert-list-desc">
+                    <!-- <div class="oj-flex-item oj-sm-12 oj-md-6"><strong>Certificate Name: </strong><span data-bind="text: $data.Record.CertificateName"></span></div> -->
+                    <div class="oj-flex-item oj-sm-12 oj-md-3"><strong>Status: </strong><span data-bind="text: $data.Record.certStatusName"></span></div>
+                    <div class="oj-flex-item oj-md-6 oj-lg-5"><strong>Passing Date: </strong><span data-bind="text: $data.Record.PassingDate"></span></div>
+                    <div class="oj-flex-item oj-sm-12 oj-md-3 oj-lg-4"><strong>Expiry Date: </strong><span data-bind="text: $data.Record.ExpiryDate"></span></div>
+                </div>
+                <div class="oj-flex">
+                </div>
+            </div>
+
+            <div class="oj-flex-item oj-sm-only-hide oj-sm-1  oj-md-1 cert-vertical-middle cert-edit-btn" 
+                 data-bind="click: $parent.onEdit, visible: $parent.ifOracleRole ">
+                <i class="fas fa-edit fa-2x cert-edit-icon"></i>
+            </div>
+
+        </div>
+</li>
+</script>

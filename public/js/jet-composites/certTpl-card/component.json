@@ -1,0 +1,32 @@
+{
+  "name": "demo-card",
+  "description": "A card element that can display an avatar or initials on one side and employee information on the other.",
+  "version": "1.0.2",
+  "jetVersion": ">=3.0.0 <5.0.0",
+  "properties": {
+    "certificateHash": {
+      "description": "The certificate hash key.",
+      "type": "string"
+    },
+    "certificateName": {
+      "description": "The certificate Name.",
+      "type": "string"
+    },
+    "partnerName": {
+      "description": "The partner name.",
+      "type": "string"
+    },
+    "expiryDate": {
+      "description": "The expiry date.",
+      "type": "string"
+    },
+    "certificateStatusName": {
+      "description": "The certificate status name.",
+      "type": "string"
+    },
+    "certificateTypeName": {
+      "description": "The certificate type name.",
+      "type": "string"
+    }
+  }
+}

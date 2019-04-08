@@ -1,0 +1,55 @@
+<div tabindex="0" role="group" class="demo-card-flip-container" on-click="[[flipCard]]" on-keypress="[[flipCard]]" :aria-label="[[$properties.certificate-name + ' Press Enter for more info.']]">
+  <div class="demo-card-front-side">
+    <h2 class="demo-card-front-text">
+      <oj-bind-text value="[[$properties.certificateName]]"></oj-bind-text>
+    </h2>
+    <br>
+    <h5 class="demo-card-front-desc">
+      <oj-bind-text value="[['Partner: '+$properties.partnerName]]"></oj-bind-text>
+    </h5>
+    <h5 class="demo-card-front-desc">
+      <oj-bind-text value="[['Expiry Date: '+$properties.expiryDate]]"></oj-bind-text>
+    </h5> 
+  </div>
+
+  <div class="demo-card-back-side">
+    <div class="demo-card-inner-back-side">
+      <h2>
+        <oj-bind-text value="[[$properties.certificateName]]"></oj-bind-text>
+      </h2>
+      <hr>
+      <span class="demo-card-text">
+        Expiry Date:
+        <oj-bind-text value="[[$properties.expiryDate]]"></oj-bind-text>
+      </span>
+      <div>
+        <span class="demo-card-text">
+          Type:
+          <oj-bind-text value="[[$properties.certificateTypeName]]"></oj-bind-text>
+        </span>
+      </div>
+      <div>
+        <span class="demo-card-text">
+          Status:
+          <oj-bind-text value="[[$properties.certificateStatusName]]"></oj-bind-text>
+        </span>
+      </div>
+      <div>
+        <span class="demo-card-text">
+          <br/>
+          <oj-bind-text value="[[$properties.certificateHash]]"></oj-bind-text>
+        </span>
+      </div>
+
+      <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-between">
+        <div class="oj-flex-item"></div>
+        <div class="oj-flex-item"></div>
+        <div class="oj-flex-item">
+          <div id="certQR" data-bind="click: onMoreInfo" style="margin-top:5px;"></div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

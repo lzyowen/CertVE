@@ -1,0 +1,53 @@
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+
+<div class="oj-hybrid-padding">
+    <div class="oj-flex" >
+        <div class="oj-flex-item oj-sm-12 oj-md-6 oj-lg-5 ">
+            <div class="oj-panel oj-panel-shadow-lg cert-loginRound">
+                <div style="margin: 0 60px">
+                    <div style="font-size: xx-large; color: #023092; width: 100%;">
+                        Login
+                    </div>
+                    <br/>
+                    <div>
+                        <oj-label for="text-user"><i class="fas fa-user"></i> <span data-bind="text: lblusername"></span></oj-label>
+                        <oj-input-text id="text-user" autofocus value="{{username}}" clear-icon="always" onkeydown="EnterPress()"></oj-input-text>
+                    </div>
+                    <br/>
+                    <div>
+                        <oj-label for="text-password"><i class="fas fa-key"></i> <span data-bind="text: lblpassword"></span></oj-label>
+                        <oj-input-password id="text-password" value="{{password}}" clear-icon="always" onkeydown="EnterPress()"></oj-input-password>
+                    </div>
+                    <br/>
+                <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-between">
+                    <div class="oj-flex-item"></div>
+                    <div class="oj-flex-item"></div>
+                    <div class="oj-flex-item">
+                        <oj-button class="cert-button" style="width: 90px;" on-click='[[onLogin]]'><span data-bind="text: btnLogin"></oj-button>
+                    </div>
+                </div>
+            </div>
+                </div>
+        </div>
+        <div class="oj-flex-item oj-sm-only-hide oj-md-6 oj-lg-7" style="padding: 0 0 0 100px; margin-top: 50px;    text-align: center; ">
+
+            <img src="css/images/login-image.png" style="width:600px;max-width:600px;border: 30px solid lightgrey;outline: 10px solid #708090;"/>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Template for rendering navigation items shared between nav bar and nav list -->
+<script type="text/html" id="navTemplate">
+    <li>
+        <a href="#">
+            <span :class="[[$data['iconClass']]]"></span>
+            <oj-bind-text value="[[$data['name']]]"></oj-bind-text>
+        </a>
+    </li>
+</script>
